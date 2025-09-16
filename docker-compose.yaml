@@ -284,5 +284,42 @@ services:
   #     airflow-init:
   #       condition: service_completed_successfully
 
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    volumes:
+      - mysql_h:/var/lib/mysql
+      - ./dataset:/tmp/dataset
+      - ./load_dataset:/tmp/load_dataset
+    ports:
+      - "3307:3306"
+    env_file: .env
+    networks:
+      - data_network
+  
+  de_psql:
+    image: postgres:14-alpine
+    container_name: de_psql
+    hostname: de_psql
+    volumes:
+      - postgres_data_h:/var/lib/postgresql/data
+      - ./pg_hba.conf:/tmp/pg_hba.conf
+    command: ["postgres", "-c", "hba_file=/tmp/pg_hba.conf"]
+    expose:
+      - "5433"
+    ports:
+      - "5433:5432" 
+    env_file: .env
+    networks:
+      - data_network
+  
+
+networks:
+  data_network:
+    driver: bridge
+    name: data_network
+
 volumes:
   postgres-db-volume:
+  mysql_h: {}
+  postgres_data_h: {}
