@@ -1,0 +1,7 @@
+Tải file docker-compose.yaml mẫu của Airflow
+Airflow cung cấp sẵn cấu hình chính thức. Chạy:
+curl -LfO 'https://airflow.apache.org/docs/apache-airflow/2.10.2/docker-compose.yaml'
+Tạo 3 thư mục rỗng:
+mkdir -p ./dags ./logs ./plugins
+Và set quyền ghi:
+echo -e "AIRFLOW_UID=$(id -u)" > .env
