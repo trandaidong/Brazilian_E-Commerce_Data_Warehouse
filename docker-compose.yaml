@@ -78,6 +78,9 @@ x-airflow-common:
     - ${AIRFLOW_PROJ_DIR:-.}/config:/opt/airflow/config
     - ${AIRFLOW_PROJ_DIR:-.}/plugins:/opt/airflow/plugins
   user: "${AIRFLOW_UID:-50000}:0"
+  # networks:
+  #   - default
+  #   - data_network      # <== thêm dòng này
   depends_on:
     &airflow-common-depends-on
     # redis:

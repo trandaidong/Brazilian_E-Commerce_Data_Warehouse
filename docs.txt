@@ -5,3 +5,13 @@ Tạo 3 thư mục rỗng:
 mkdir -p ./dags ./logs ./plugins
 Và set quyền ghi:
 echo -e "AIRFLOW_UID=$(id -u)" > .env
+
+Kích hoạt local_infile
+-- Trên MySQL client:
+SHOW GLOBAL VARIABLES LIKE 'local_infile';
+-- Nếu giá trị là OFF:
+SET GLOBAL local_infile = 1;
+
+
+vo mysql : mysql --local-infile=1 -u your_user -p
+
