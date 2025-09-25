@@ -1,1 +1,4 @@
-Brazilian E-Commerce Data Warehouse
+# Brazilian E-Commerce Data Warehouse
+Build an exciting ELT data pipeline project focused on eCommerce data! This end-to-end pipeline extracts sales data, stages it for further analysis, and transforms it into actionable insights in a data warehouse.
+Python and custom scripts were used to extract and load eCommerce data efficiently from CSV files and MySQL databases. PostgreSQL served as the staging area and the final data warehouse, handling structured sales data. Apache Airflow orchestrated the entire workflow, ensuring smooth operations from extraction to transformation. Containerized the project using Docker for seamless environment management and consistent deployment. Power BI provided the final layer of visualization, offering insightful sales analytics and business intelligence.
+<img width="810" height="488" alt="image" src="https://github.com/user-attachments/assets/294470ce-000a-4f9a-87fa-85c32e2674e2" />
